@@ -60,6 +60,8 @@ should be a single line containing the secret key.
 (defun shellgpt:start-repl ()
   "Start the shellgpt REPL."
   (interactive)
+  (unless (getenv "OPENAI_API_KEY")
+    (shellgpt:fetch-api-key))
   (let ((tmpbuf (get-buffer-create shellgpt:repl-buffer-name)))
     (pop-to-buffer tmpbuf)
     (unless (comint-check-proc tmpbuf)
