@@ -51,7 +51,7 @@ should be a single line containing the secret key.
     (if (file-exists-p shellgpt:openai-config-file)
         (let ((config-file-sk
                (with-temp-buffer
-                 (insert-file-contents openai-config-file)
+                 (insert-file-contents shellgpt:openai-config-file)
                  (buffer-string))))
           (setenv "OPENAI_API_KEY" config-file-sk))
       (message "openai config file does not exist. Exiting..."))))
