@@ -1,5 +1,6 @@
 (require 'comint)
 
+;;;###autoload
 (defmacro defsgptcustom (id &rest stx)
   "Calls `'defcustom`' on the identifier 'shellgpt:id' with the
 given rest syntax"
@@ -7,13 +8,7 @@ given rest syntax"
          (concat "shellgpt:" (symbol-name id))))
     `(defcustom ,(intern custom-id) ,@stx)))
 
-(defmacro defsgptcustom (id &rest stx)
-  "Calls `'defcustom`' on the identifier 'shellgpt:id' with the
-given rest syntax"
-  (let ((custom-id
-         (concat "shellgpt:" (symbol-name id))))
-    `(defcustom ,(intern custom-id) ,@stx)))
-
+;;;###autoload
 (defmacro defsgptfun (id &rest stx)
   "Defines the function 'sgpt:id'"
   (let ((custom-id
