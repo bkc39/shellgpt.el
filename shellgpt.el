@@ -14,7 +14,7 @@
 
 ;;;###autoload
 (defcustom shellgpt:executable-path
-  (or (executable-find "")
+  (or (executable-find "sgpt")
       (progn
         (warn "shellgpt executable not found in path (searched for '')")
         ""))
