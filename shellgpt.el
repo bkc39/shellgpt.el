@@ -17,14 +17,18 @@
   (or (executable-find "sgpt")
       (progn
         (warn "shellgpt executable not found in path (searched for '')")
-        ""))
+        "sgpt"))
   "Path of the shellgpt executable"
   :type 'list
   :group 'shellgpt)
 
+(defvar shellgpt:repl-chat-name
+  "emacs-repl"
+  "Name of the REPL to open")
+
 ;;;###autoload
 (defcustom shellgpt:command-line-args
-  (list "--repl" "emacs-repl")
+  (list "--repl" shellgpt:repl-chat-name)
   "List of command line arguments passed to the  process"
   :type 'list
   :group 'shellgpt)
