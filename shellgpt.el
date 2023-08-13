@@ -22,6 +22,7 @@
   :type 'list
   :group 'shellgpt)
 
+;;;###autoload
 (defcustom shellgpt:repl-chat-name
   "emacs-repl"
   "Name of the REPL to open"
@@ -30,7 +31,7 @@
 
 ;;;###autoload
 (defcustom shellgpt:command-line-args
-  (list "--repl" shellgpt:repl-chat-name)
+  '()
   "List of command line arguments passed to the  process"
   :type 'list
   :group 'shellgpt)
@@ -77,7 +78,8 @@ should be a single line containing the secret key.
                     tmpbuf
                     shellgpt:executable-path
                     nil
-                    shellgpt:command-line-args)))
+                    (append (list "--repl" shellgpt:repl-chat-name)
+                            shellgpt:command-line-args))))
         (set-process-query-on-exit-flag
          (get-buffer-process tmpbuf)
          nil)))))
