@@ -22,9 +22,11 @@
   :type 'list
   :group 'shellgpt)
 
-(defvar shellgpt:repl-chat-name
+(defcustom shellgpt:repl-chat-name
   "emacs-repl"
-  "Name of the REPL to open")
+  "Name of the REPL to open"
+  :type 'string
+  :group 'shellgpt)
 
 ;;;###autoload
 (defcustom shellgpt:command-line-args
