@@ -57,3 +57,6 @@ customize this in your init:
   :custom
   (shellgpt:openai-config-file PATH))
 ```
+
+Send a query with "M-x shellgpt:quick-ask", or if you use the
+bindings in the configs above, "C-c q".
