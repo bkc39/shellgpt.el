@@ -37,3 +37,23 @@ In your Emacs init file put in the following incantantion:
              :files ("dist" "*.el"))
   :bind ("C-c q" . shellgpt:quick-ask))
 ```
+
+## Usage
+
+You need to set the environment variable `OPENAI_API_KEY`
+
+```
+$ echo 'export OPENAI_API_KEY=<YOUR-API-KEY>' >> ~/.zshrc # or your shell init file
+```
+
+Alternatively, if if `OPENAI_API_KEY` is not defined then it will
+search for `shellgpt:openai-config-file`, which should contain your
+api key as its contents. The default is `~/.openai` but you can
+customize this in your init:
+
+```emacs-lisp
+(use-package shellgpt
+  ...
+  :custom
+  (shellgpt:openai-config-file PATH))
+```
