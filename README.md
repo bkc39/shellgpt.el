@@ -12,7 +12,7 @@ $ pip install shell-gpt
 
 ## [use-package](https://github.com/jwiegley/use-package)
 
-First, clone the repository
+Clone the repository
 
 ```
 $ git clone git@github.com:bkc39/shellgpt.el.git <path-to-shellgpt.el>
