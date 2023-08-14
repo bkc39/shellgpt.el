@@ -106,8 +106,11 @@ which will submit the query to the REPL
 This will start the REPL if it has not been started already.
 "
   (interactive)
-  (unless (get-buffer shellgpt:repl-buffer-name)
-    (shellgpt:start-repl))
-  (shellgpt:send-query-text (read-string "ChatGPT query: ") t))
+  (let ((shellgpt-buffer
+         (get-buffer shellgpt:repl-buffer-name)))
+    (unless shellgpt-buffer
+      (shellgpt:start-repl))
+    (shellgpt:send-query-text (read-string "ChatGPT query: ") t)
+    (switch-to-buffer shellgpt-buffer)))
 
 (provide 'shellgpt)
